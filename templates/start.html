@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Cat</title>
+
+    <link rel="icon" type="jpg" href="./images/cat.jpg">
+    <link rel="stylesheet" href="css/css.css" />
+
+</head>
+<body>
+    <nav class = "nav">
+        <dev class = "left">
+            <img src="images/WebLogo.png" alt="image of a WebLogo" width="50">
+        </dev>
+        <dev>
+            <form action="processing-script.php" method="GET">
+                <input name="search" name="search" placeholder="Search">
+            </form>
+        </dev>
+        <dev>
+            <a href="./homepage.html">Home</a>
+            <a href="./page/cityslist.html">Citys</a>
+            <a href="./page/about.html">About</a>           
+        </dev>
+        <dev class = "right">
+            <button id="openLogin">Login</button>
+            <!-- ※ ※ ※  login的图标需要做成下划线式而不是按钮式，需要在CSS完成 -->
+            <!-- <button id="openSignUp">Sign up</button> -->
+            <!-- ※ ※ ※  login和signup需不需要分开做？？ -->
+
+            <dialog id="loginDialog">
+                <form action="processing-script.php" method="POST" >
+                    <h3>Login</h3>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <div>
+                        <button type="submit">Sign in</button>
+                        <button type="button" id="closeLogin">Cancel</button>
+                    </div>
+                </form>
+            </dialog>
+
+        </dev>
+    </nav>
+    
+    <main class="grid-bg">
+        <div class = "left">
+            <h2>Travel cat</h2>
+        <p>
+            Your curious cat, your world of wonders.
+        </p>
+        <p>
+            Exploring the world with kittens through food, clothing, accommodation and transportation.
+        </p>
+        <a href="./page/homepage.html">Get Start</a>
+        </div>
+        
+        <img class = "right" src="images/startPic.png" alt="image of a WebLogo" width="600">
+    </main>
+       
+
+
+
+    <footer>
+        <div>
+            <h2>Cookies</h2>
+            <p>
+                We use cookies to enhance and promote our services. Choose “Accept All” to agree to the current cookie settings or “Customize” to make individual choices and get details on the cookies in use.Visit our Cookie Policy page to learn more.
+            </p>
+            <a href="#">Accept cookies</a>
+        </div>
+        
+    </footer>
+
+    <script src = "js/main.js"></script>
+</body>
+</html>

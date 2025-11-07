@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="jpg" href="./images/cat.jpg">
+  <link rel="stylesheet" href="../css/css.css" />
+  <title>Travel Cat</title>
+
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+  <style>
+    body { margin: 0; padding: 0; }
+    #map { width: 800px; height: 600px; }
+  </style>
+</head>
+
+<body>
+  <nav class = "nav">
+        <dev>
+            <img src="../images/WebLogo.png" alt="image of a WebLogo" width="50">
+        </dev>
+        <dev>
+            <form action="processing-script.php" method="GET">
+                <input name="search" name="search" placeholder="Search">
+            </form>
+        </dev>
+        <dev>
+            <a href="./homepage.html">Home</a>
+            <a href="./page/cityslist.html">Citys</a>
+            <a href="./page/about.html">About</a>           
+        </dev>
+        <dev class = "right">
+            <button id="openLogin">Login</button>
+            <!-- ※ ※ ※  login的图标需要做成下划线式而不是按钮式，需要在CSS完成 -->
+            <!-- <button id="openSignUp">Sign up</button> -->
+            <!-- ※ ※ ※  login和signup需不需要分开做？？ -->
+
+            <dialog id="loginDialog">
+                <form action="processing-script.php" method="POST" >
+                    <h3>Login</h3>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <div>
+                        <button type="submit">Sign in</button>
+                        <button type="button" id="closeLogin">Cancel</button>
+                    </div>
+                </form>
+            </dialog>
+
+        </dev>
+    </nav>
+
+    <main class = "mapArea">
+        <div id="map"></div>
+            <script>
+                mapboxgl.accessToken = 'pk.eyJ1IjoiaDg2OTY2MTM2OCIsImEiOiJjbWgweXdiYXIyam4zMmpxMm4xdzVxdDZ3In0.ss474gDeBh40T0_8FFKw2A';
+                const map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v12', // 样式ID
+                center: [-79.3832, 43.6532], // 多伦多坐标
+                zoom: 12
+                });
+
+                // 添加缩放控件
+                map.addControl(new mapboxgl.NavigationControl());
+
+                // 添加标记
+                new mapboxgl.Marker().setLngLat([-79.3832, 43.6532]).addTo(map);
+            </script>
+
+        <div>
+            <button id="openShop">Shop</button>
+            <button id="openWeather">Weather</button>
+            <button id="openHotels">Hotels</button>
+        </div>
+    </main>
+  
+    
+
+    <div class = "citys">
+        <h2>Citys</h2>
+            
+            <div class = "Industry">
+                <div>
+                    <h3>[Content to be replaced]</h3>
+                    <p>[Content to be replaced]Weather:Rain</p>
+                    <!-- <img src="./images/manga.png" alt="image of City" width="500"> -->
+                    <p>
+                        History:[Content to be replaced]Toronto was founded as the Town of York and capital of Upper Canada in 1793 after the Mississaugas sold the land to the British in the Toronto Purchase.[1] For over 12,000 years, Indigenous People have lived in the Toronto area. The ancestors of the Huron-Wendat were the first known groups to establish agricultural villages in the area about 1,600 years ago.[2]
+                    </p>
+                    <p><a href="./cityspage/templatepage.html">More</a></p>
+                </div>
+
+                <div>
+                    <h3>[Content to be replaced]</h3>
+                    <p>[Content to be replaced]Weather:Rain</p>
+                    <!-- <img src="./images/manga.png" alt="image of City" width="500"> -->
+                    <p>
+                        History:[Content to be replaced]Toronto was founded as the Town of York and capital of Upper Canada in 1793 after the Mississaugas sold the land to the British in the Toronto Purchase.[1] For over 12,000 years, Indigenous People have lived in the Toronto area. The ancestors of the Huron-Wendat were the first known groups to establish agricultural villages in the area about 1,600 years ago.[2]
+                    </p>
+                    <p><a href="./cityspage/templatepage.html">More</a></p>
+                </div>
+                
+            </div>
+            <br>
+       
+
+    </div>
+
+    <footer>
+        <div>
+            <h2>Cookies</h2>
+            <p>
+                We use cookies to enhance and promote our services. Choose “Accept All” to agree to the current cookie settings or “Customize” to make individual choices and get details on the cookies in use.Visit our Cookie Policy page to learn more.
+            </p>
+            <a href="#">Accept cookies</a>
+        </div>
+        
+    </footer>
+
+    <script src = "../js/main.js"></script>
+</body>
+</html>
