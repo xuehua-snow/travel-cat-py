@@ -1,10 +1,22 @@
 Git branch hierarchy:
-  main  //only for show the progress
-  └── dev  //Synchronize everyone's modification work
-      ├── feature-backend  //for xuehua to write front/back-end code
-      └── feature-css  //for shiran to change css
-1.Change code in local computer.
-2.Pull to your own branch to save different versions change.
-3.Pull to dev branch so that others can get your work.
-4.After confirm, pull request to main.
 
+main  
+// only for showing the final progress
+
+└── dev  
+    // synchronize everyone's work
+
+    ├── feature-backend  
+    // for xuehua to write front/back-end code
+
+    └── feature-css  
+    // for shiran to change css
+
+---
+
+Workflow:
+
+1. Change code on your local computer.  
+2. Push to your own feature branch to save different version changes.  
+3. Merge (Pull Request) to the dev branch so others can get your work.  
+4. After confirming everything is correct, merge dev into main.
