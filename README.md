@@ -1,16 +1,8 @@
 Git branch hierarchy:
-
-main  
-// only for showing the final progress
-
-└── dev  
-    // synchronize everyone's work
-
-    ├── feature-backend  
-    // for xuehua to write front/back-end code
-
-    └── feature-css  
-    // for shiran to change css
+main  // only for showing the final progress
+└── dev  // synchronize everyone's work
+    ├── feature-backend  // for xuehua to write front/back-end code
+    └── feature-css  // for shiran to change css
 
 ---
 
