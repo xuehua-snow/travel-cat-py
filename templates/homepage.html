@@ -1,53 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="jpg" href="./images/cat.jpg">
-  <link rel="stylesheet" href="../css/css.css" />
-  <title>Travel Cat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
-  <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
-  <style>
-    body { margin: 0; padding: 0; }
-    #map { width: 800px; height: 600px; }
-  </style>
+    <title>Travel Cat</title>
+    <link rel="icon" type="jpg" href="../static/icon/WebIcon2.png">
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="../static/css/start.css" />
+    <link rel="stylesheet" href="../static/css/homepage.css" />
+
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+    <style>
+    
+    </style>
 </head>
 
 <body>
-  <nav class = "nav">
+   <nav class = "nav">
         <dev>
-            <img src="../images/WebLogo.png" alt="image of a WebLogo" width="50">
+            <img src="../static/icon/WebIcon2.png" alt="image of a WebLogo" class = "nav-logo">
         </dev>
-        <dev>
+        <dev >
             <form action="processing-script.php" method="GET">
-                <input name="search" name="search" placeholder="Search">
+                <input name="search" name="search" placeholder="Search" class = "nav-search">
+                <button class="search-icon"><img src="../static/icon/search-icon.png" alt="SearchIcon" class="search-icon"></button>
             </form>
+            <!-- #需要检查 -->
         </dev>
-        <dev>
-            <a href="./homepage.html">Home</a>
-            <a href="./page/cityslist.html">Citys</a>
-            <a href="./page/about.html">About</a>           
+        <dev class = "nav-link">
+            <a href="./homepage.html">
+                Home
+                <img src="../static/icon/home-icon.png" class="nav-icon" alt="home-icon">
+            </a>
+            <a href="./cityslist.html">
+                Citys
+                <img src="../static/icon/map-icon.png" class="nav-icon" alt="city-icon">
+            </a>
+            <a href="./about.html">
+                About
+                <img src="../static/icon/about-icon.png" class="nav-icon" alt="about-icon">
+            </a>           
         </dev>
         <dev class = "right">
-            <button id="openLogin">Login</button>
-            <!-- ※ ※ ※  login的图标需要做成下划线式而不是按钮式，需要在CSS完成 -->
+            <button id="openLogin" class = "login-icon">Login | Sign up</button>
             <!-- <button id="openSignUp">Sign up</button> -->
-            <!-- ※ ※ ※  login和signup需不需要分开做？？ -->
+            <!-- #login和signup需不需要分开做？？ -->
 
-            <dialog id="loginDialog">
+            <dialog id="loginDialog" class = "login">
                 <form action="processing-script.php" method="POST" >
-                    <h3>Login</h3>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <input type="password" name="password" placeholder="Password" required>
+                    <div class = "login-title">
+                        <img src="../static/icon/WebIcon2.png" alt="image of a WebLogo">
+                        <h3>Sign In</h3>
+                    </div>
+                    <div class="loginForm">
+                        <label>
+                            E-mail Address<input type="email" name="email" required>
+                        </label>
+                    </div>
+                    <div class="loginForm">
+                        <label>
+                            Password<input type="password" name="password" required>
+                        </label>
+                    </div>
+                    <div class="logincheckbox">
+                        <label>
+                            <input type="checkbox" name="remember" required>Remember me
+                        </label>
+                    </div>
+
                     <div>
-                        <button type="submit">Sign in</button>
+                        <button type="submit" class = "signin">Sign in</button>
                         <button type="button" id="closeLogin">Cancel</button>
                     </div>
                 </form>
             </dialog>
-
+            <!-- #检查表单 -->
+            <!-- #登录界面的标签logo没做 -->
+            <!-- #有一些缩放和居中的问题 -->
         </dev>
     </nav>
 
@@ -69,7 +102,7 @@
                 new mapboxgl.Marker().setLngLat([-79.3832, 43.6532]).addTo(map);
             </script>
 
-        <div>
+        <div class="mapButton","right">
             <button id="openShop">Shop</button>
             <button id="openWeather">Weather</button>
             <button id="openHotels">Hotels</button>
@@ -119,6 +152,6 @@
         
     </footer>
 
-    <script src = "../js/main.js"></script>
+    <script src = "../static/js/main.js"></script>
 </body>
 </html>

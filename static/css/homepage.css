@@ -1,0 +1,86 @@
+    /* --Custom variable（自定义变量）-- */
+:root {
+    --color-primary: #405580;/* 默认主色 */
+    --color-text: #222;/* 默认字体颜色 */
+    --button-textSize: 16px;/* 默认按钮字体大小 */
+}
+
+
+
+/* --Global setting（全局默认样式） */
+body {
+    border: 0px solid black;/* 边界框 实线 默认黑色 */
+    padding:5px;/* 内边距 */
+    margin: 5px;/* 外边距 */
+
+    color: var(--color-text);/* 字体颜色 */
+    background-color: #ffffff;/* 背景颜色 */
+}
+
+.right{
+    /* --向右对齐-- */
+    margin-left: auto;
+}
+
+/* --Different part setting(各区域样式）-- */
+
+.mapArea{
+    /* --地图区-- */
+    width: 100%;/* 宽度 */
+    height: 700px;/* 高度 */
+    border: 0px solid black;/* 边界框 类型：实线 颜色：黑色 */
+    border-radius:0px;/* 圆角 */
+    padding:0px;/* 内边距 */
+    margin: 0px;/* 外边距 */
+
+    color: var(--color-text);/* 字体颜色 */
+    opacity: 1;/* 透明度 */
+
+    display: flex;
+}
+
+#map{
+    /* --地图-- */
+    width: 1200px; /* 宽度 */
+    height: 600px; /* 高度 */
+    padding:30px;/* 内边距 */
+    margin: 40px;/* 外边距 */
+
+    border-radius:20px;/* 圆角 */
+
+    display: flex;
+    position: relative;/* 位置 */
+        bottom: 30px;/* 向下移动 */
+        left: 5px;/* 向右移动 */
+}
+
+.mapButton button{
+    /* --地图按钮-- */
+    width: 200px;/* 宽度 */
+    padding:20px;/* 内边距 */
+    margin: 10px;/* 外边距 */
+
+    border: none;/* 去掉按钮框 */
+    border-radius: 17px;/* 圆角 */
+    background: transparent;/* 去掉按钮色 */
+
+    font-size: 20px;
+    font-weight:bold;
+    color: var(--color-text);/* 字体颜色 */
+
+
+    display: flex;
+    flex-direction:column;
+}
+.citys{
+    /* --地图区-- */
+    width: 100%;/* 宽度 */
+    border: 0px solid black;/* 边界框 类型：实线 颜色：黑色 */
+    border-radius:0px;/* 圆角 */
+    padding:0px;/* 内边距 */
+    margin: 0px;/* 外边距 */
+
+    color: var(--color-text);/* 字体颜色 */
+
+    opacity: 1;/* 透明度 */
+}

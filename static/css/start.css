@@ -1,0 +1,298 @@
+    /* --Custom variable（自定义变量）-- */
+:root {
+    --color-primary: #405580;/* 默认主色 */
+    --color-text: #222;/* 默认字体颜色 */
+    --button-textSize: 16px;/* 默认按钮字体大小 */
+}
+
+
+
+/* --Global setting（全局默认样式） */
+body {
+    border: 0px solid black;/* 边界框 实线 默认黑色 */
+    padding:5px;/* 内边距 */
+    margin: 5px;/* 外边距 */
+
+    color: var(--color-text);/* 字体颜色 */
+    background-color: #ffffff;/* 背景颜色 */
+}
+
+.right{
+    /* --向右对齐-- */
+    margin-left: auto;
+}
+
+/* --Different part setting(各区域样式）-- */
+.nav{
+    /* --导航区-- */
+    width: 100%;/* 宽度 */
+    height: 100px;/* 高度 */
+    border: 0px solid black;/* 边界框 类型：实线 颜色：黑色 */
+    border-radius:0px;/* 圆角 */
+    padding:0px;/* 内边距 */
+    margin: 0px;/* 外边距 */
+
+    color: var(--color-text);/* 字体颜色 */
+    background-color: #ffffff;/* 背景颜色 */
+    opacity: 1;/* 透明度 */
+
+    display: flex;
+}
+
+.nav-logo{
+    /* --导航区logo-- */
+    width: 80px;/* 宽度 */    
+    
+}
+
+.nav-search{
+    /* --导航区搜索框-- */
+    width: 280px;/* 宽度 */
+    padding: 15px 10px;/* 内边距:高、宽 */
+
+    border: 0px solid #ddd;/* 边界框 类型：实线 颜色：黑色 */
+    border-radius: 17px;/* 圆角 */
+
+    background-color: #f2f2f2;/* 背景颜色 */
+    
+    font-size: 16px;/* 字体大小 */  
+
+    position: relative;/* 位置 */
+        top: 10px;/* 向下移动 */
+        left: 30px;/* 向右移动 */
+}
+
+.search-icon {
+    /* --导航区搜索框图标-- */
+    width: 20px;/* 宽度 */
+    border: none;
+    background: transparent;
+
+    padding: 0;
+
+    position: relative;/* 位置 */
+        top: 7px;/* 向下移动 */
+        right: 5px;/* 向右移动 */
+}
+
+.nav-link>a{
+    /* --导航区链接-- */
+    padding: 10px 5px;/* 内边距:高、宽 */
+    border-radius: 17px;/* 圆角 */
+    margin: 15px;
+    
+    font-size: var(--button-textSize);/* 字体大小 */  
+    text-decoration: none;/* 去掉下划线 */
+
+    position: relative;/* 位置 */
+        top: 17px;/* 向下移动 */
+        left: 30px;/* 向右移动 */
+}
+
+.nav-link img{
+    /* --导航区logo-- */
+    width: 25px;/* 宽度 */
+    padding: 1px 4px;/* 内边距:高、宽 */
+
+    position: relative;/* 位置 */
+        top: 2px;/* 向下移动 */
+        left: 2px;/* 向右移动 */
+}
+
+.login-icon{
+    /* --登录按钮-- */
+    width: 140px;/* 宽度 */
+    padding: 5px 4px;/* 内边距:高、宽 */
+    border: none;/* 去掉按钮框 */
+    border-radius: 17px;/* 圆角 */
+    background: transparent;/* 去掉按钮色 */
+
+    font-size: var(--button-textSize);/* 字体大小 */  
+
+    position: relative;/* 位置 */
+        top: 10px;/* 向下移动 */
+        right: 5px;/* 向右移动 */
+}
+
+.grid-bg{
+    /* --主体颜色-- */
+    width:"pxwidth=device-width";/* 宽度 */
+    min-height:200px;/* 高度 */
+    padding:16px;/* 内边距*/
+    border-radius: 20px;/* 圆角 */
+
+    background-color:#ffd175;/* 背景色 */
+
+    display: flex;/* 位置 */
+}
+
+.main-text{
+    /* --主体文字-- */
+    width: 400px;/* 宽度 */
+    padding:16px;/* 内边距*/
+    margin: 50px;/* 外边距*/
+
+    position: relative;/* 位置 */
+        bottom: 10px;/* 向下移动 */
+        left: 10px;/* 向右移动 */
+}
+
+.grid-bg>img{
+    /* --主体图片-- */
+
+    padding:56px;/* 内边距*/
+
+}
+
+.grid-bg h2{
+    /* --网站标题-- */
+    font-size: 50px;/* 字体大小 */ 
+
+}
+
+.intro{
+    /* --网站介绍-- */
+    font-size: 30px;/* 字体大小 */  
+
+    position: relative;/* 位置 */
+        bottom: 30px;/* 向下移动 */
+        left: 0px;/* 向右移动 */
+}
+
+.grid-bg p{
+    /* --内容-- */
+    position: relative;/* 位置 */
+        bottom: 30px;/* 向下移动 */
+        left: 0px;/* 向右移动 */
+}
+
+.getStart{
+    /* --getStart按钮-- */
+    text-decoration: none;/* 去掉下划线 */
+    padding: 17px 50px;/* 按钮:高、宽 */
+
+    border-radius: 40px;/* 圆角 */
+    background: black;/* 按钮色 */
+
+    color:#ddd;
+    font-size: var(--button-textSize);/* 字体大小 */  
+
+    position: relative;/* 位置 */
+        top: 50px;/* 向下移动 */
+        right: 5px;/* 向右移动 */
+}
+
+.login{
+    /* --登录界面-- */
+    width: 400px;/* 宽度 */
+    height: 600px;/* 高度 */
+    border-radius: 20px;/* 圆角 */
+    border:none;/* 去掉边框 */
+
+    background: rgba(255, 255, 255,0.5);/* 界面色 */
+    backdrop-filter: blur(20px);/* 磨砂玻璃效果 */
+    -webkit-backdrop-filter: blur(20px);/* safari */
+
+    position: relative;/* 位置 */
+        top: 50px;/* 向下移动 */
+        right: 5px;/* 向右移动 */
+}
+
+.login img{
+    /* --登录界面logo-- */
+    width: 60px;/* 宽度 */    
+    border-radius: 20px;/* 圆角 */
+    margin-bottom: 24px;/* 下边距 */
+    
+    position: relative;/* 位置 */
+        top: 30px;/* 向下移动 */
+        left: 45px;/* 向右移动 */
+}
+
+.login h3{
+    /* --登录界面标题-- */
+    font-size: 25px;/* 字体大小 */ 
+
+    display: inline;/* 位置 */
+        position: relative;/* 位置 */
+        bottom: 10px;/* 向下移动 */
+        left: 65px;/* 向右移动 */
+}
+
+.loginForm{
+    /* 登录表单 */
+    margin: 24px;/* 外边距 */
+
+    position: relative;/* 位置 */
+        top: 30px;/* 向下移动 */
+}
+
+.loginForm label{
+    /* 登录表单title */
+    width: "pxwidth=device-width";/* 宽度 */
+    padding: 5px 10px;/* 内边距：高、宽*/
+
+    display: block;/* 显示：块 */
+
+    font-size: 16px;/* 字体大小 */  
+    font-weight: 600;/* 字体宽度 */
+}
+
+.loginForm input{
+    width: 280px;/* 宽度 */  
+    padding: 15px 10px;/* 内边距:高、宽 */
+
+    font-size: 14px;
+    font-weight: 600;/* 字体宽度 */
+
+    border:none;/* 删除边界框*/
+    border-radius: 13px;/* 圆角 */
+
+    background-color: #f2f2f2;/* 背景颜色 */
+
+    position: relative;/* 位置 */
+        top: 10px;/* 向下移动 */
+}
+
+.logincheckbox{
+    width: 280px;/* 宽度 */
+    font-size: 14px;
+    font-weight: 600;/* 字体宽度 */
+
+    position: relative;/* 位置 */
+        top: 30px;/* 向下移动 */
+        left: 40px;/* 向右移动 */
+}
+
+.signin{
+    /* --登录按钮-- */
+    width: 80%;/* 宽度 */
+    height: 50px;/* 高度 */
+
+    border-radius: 15px;/* 圆角 */
+    border:none;/* 去掉边框 */
+    background: black;/* 按钮色 */
+
+    color:#ddd;
+    font-size: var(--button-textSize);/* 字体大小 */  
+
+    position: relative;/* 位置 */
+        top: 80px;/* 向下移动 */
+        left: 30px;/* 向右移动 */
+}
+#closeLogin{
+    /* --取消按钮-- */
+    width: 80%;/* 宽度 */
+    height: 50px;/* 高度 */
+
+    border-radius: 15px;/* 圆角 */
+    border:none;/* 去掉边框 */
+    background: rgb(148, 148, 148);/* 按钮色 */
+
+    color:#ddd;
+    font-size: var(--button-textSize);/* 字体大小 */  
+
+    position: relative;/* 位置 */
+        top: 100px;/* 向下移动 */
+        left: 30px;/* 向右移动 */
+}
