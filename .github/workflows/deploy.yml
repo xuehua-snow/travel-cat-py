@@ -2,27 +2,28 @@ name: Deploy to cPanel
 
 on:
   push:
-    branches:
-      - dev
+    branches: [ dev ]   # 跟踪 dev
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Setup SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        echo -e "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
-
-    - name: Sync files to cPanel
-      run: |
-        rsync -avz --delete \
-          -e "ssh -p ${{ secrets.SSH_PORT }}" \
-          ./ \
-          ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/public_html/
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            set -e
+            cd /data/home/${{ secrets.SSH_USER }}/public_html/travel-cat-py
+            # 确保远程为 SSH 格式，避免凭证问题
+            git remote set-url origin git@github.com:xuehua-snow/travel-cat-py.git
+            git fetch origin
+            git reset --hard origin/dev
+            # 如有 venv 和 requirements，可自动安装
+            if [ -d venv ]; then source venv/bin/activate || true; fi
+            if [ -f requirements.txt ]; then pip install -r requirements.txt || true; fi
+            # Passenger/Flask 重启
+            mkdir -p tmp && touch tmp/restart.txt
