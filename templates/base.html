@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Travel Cat</title>
+    {% block Prohibit_caching %}{% endblock %}
+
+    <title>{% block Title %}{% endblock %}</title>
     <link rel="icon" type="jpg" href="../static/icon/WebIcon2.png">
 
     <!-- CSS Link -->

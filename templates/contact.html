@@ -1,47 +1,48 @@
 {% extends "base.html" %} 
+
+{% block Title %}Contact{% endblock %}
+
 {% block content %}
-
-<main>
-    <div>
+    <main>
         <div>
-            <h1>Contact</h1>
+            <div>
+                <h1>Contact</h1>
+            </div>
+            <form action=“/process-contact” method="POST">
+                <fieldset>
+                    <legend>Contact Message</legend>
+                    <label>Name:<br>
+                        <input name="name" type="text" required>
+                    </label>
+                    <br>
+                    <br>
+
+                    <label>Email:<br>
+                        <input name="email" type="email">
+                    </label>
+                    <br>
+                    <br>
+                    <br>
+
+                    <label>Message:<br>
+                        <textarea rows="5" cols="50"></textarea>
+                    </label>
+
+                </fieldset>
+                <br>
+
+                <label>
+                    <input name="Submit" type="submit">
+                </label>
+
+            </form>
         </div>
-        <form action=“/process-contact” method="POST">
-            <fieldset>
-                <legend>Contact Message</legend>
-                <label>Name:<br>
-                    <input name="name" type="text" required>
-                </label>
-                <br>
-                <br>
+        <br>
 
-                <label>Email:<br>
-                    <input name="email" type="email">
-                </label>
-                <br>
-                <br>
-                <br>
-
-                <label>Message:<br>
-                    <textarea rows="5" cols="50"></textarea>
-                </label>
-
-            </fieldset>
-            <br>
-
-            <label>
-                <input name="Submit" type="submit">
-            </label>
-
-        </form>
-    </div>
-    <br>
-
-    <div>
-        <p>
-                <a href="../homepage.html">&lt;Go  Back</a>
-            </p>
-    </div>
-</main>
-
+        <div>
+            <p>
+                    <a href="../homepage.html">&lt;Go  Back</a>
+                </p>
+        </div>
+    </main>
 {% endblock %}

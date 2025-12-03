@@ -1,21 +1,23 @@
 {% extends "base.html" %} 
-{% block content %}
-    
-<main class="grid-bg">
-    <div class = "main-text">
-        <h2>Travel cat</h2>
-    <p class = "intro">
-        Your curious cat, your world of wonders.
-    </p>
-    <p>
-        Exploring the world with kittens through food, clothing, accommodation and transportation.
-    </p>
-    <a href="../templates/homepage.html" class = "getStart">Get Start</a>
-    </div>
-    
-    <img class = "right" src="../static/img/cat_white_autumn.png" alt="image of startPic" width="600">
-</main>
 
+{% block Title %}Travel Cat{% endblock %}
+
+
+{% block content %}
+    <main class="grid-bg">
+        <div class = "main-text">
+            <h2>Travel cat</h2>
+        <p class = "intro">
+            Your curious cat, your world of wonders.
+        </p>
+        <p>
+            Exploring the world with kittens through food, clothing, accommodation and transportation.
+        </p>
+        <a href="../templates/homepage.html" class = "getStart">Get Start</a>
+        </div>
+        
+        <img class = "right" src="../static/img/cat_white_autumn.png" alt="image of startPic" width="600">
+    </main>
 {% endblock %}
 
 

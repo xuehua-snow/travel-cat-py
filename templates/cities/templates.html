@@ -2,7 +2,16 @@
 {% block content %}
 
 <main>
-    
+
 </main>
 
 {% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block Prohibit_caching %}{% endblock %}
+
+<!-- Prohibit caching of application pages.-->
+<meta HTTP-EQUIV="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta HTTP-EQUIV="Pragma" content="no-cache">
+<meta HTTP-EQUIV="Expires" content="-1">
