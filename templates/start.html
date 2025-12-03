@@ -1,111 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Travel Cat</title>
-    <link rel="icon" type="jpg" href="../static/icon/WebIcon2.png">
-
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="../static/css/start.css" />
-
-</head>
-
-<body>
-    <nav class = "nav">
-        <dev>
-            <img src="../static/icon/WebIcon2.png" alt="image of a WebLogo" class = "nav-logo">
-        </dev>
-        <dev >
-            <form action="processing-script.php" method="GET">
-                <input name="search" name="search" placeholder="Search" class = "nav-search">
-                <button class="search-icon"><img src="../static/icon/search-icon.png" alt="SearchIcon" class="search-icon"></button>
-            </form>
-            <!-- #需要检查 -->
-        </dev>
-        <dev class = "nav-link">
-            <a href="./homepage.html">
-                Home
-                <img src="../static/icon/home-icon.png" class="nav-icon" alt="home-icon">
-            </a>
-            <a href="./cityslist.html">
-                Citys
-                <img src="../static/icon/map-icon.png" class="nav-icon" alt="city-icon">
-            </a>
-            <a href="./about.html">
-                About
-                <img src="../static/icon/about-icon.png" class="nav-icon" alt="about-icon">
-            </a>           
-        </dev>
-        <dev class = "right">
-            <button id="openLogin" class = "login-icon">Login | Sign up</button>
-            <!-- <button id="openSignUp">Sign up</button> -->
-            <!-- #login和signup需不需要分开做？？ -->
-
-            <dialog id="loginDialog" class = "login">
-                <form action="processing-script.php" method="POST" >
-                    <div class = "login-title">
-                        <img src="../static/icon/WebIcon2.png" alt="image of a WebLogo">
-                        <h3>Sign In</h3>
-                    </div>
-                    <div class="loginForm">
-                        <label>
-                            E-mail Address<input type="email" name="email" required>
-                        </label>
-                    </div>
-                    <div class="loginForm">
-                        <label>
-                            Password<input type="password" name="password" required>
-                        </label>
-                    </div>
-                    <div class="logincheckbox">
-                        <label>
-                            <input type="checkbox" name="remember" required>Remember me
-                        </label>
-                    </div>
-
-                    <div>
-                        <button type="submit" class = "signin">Sign in</button>
-                        <button type="button" id="closeLogin">Cancel</button>
-                    </div>
-                </form>
-            </dialog>
-            <!-- #检查表单 -->
-            <!-- #登录界面的标签logo没做 -->
-            <!-- #有一些缩放和居中的问题 -->
-        </dev>
-    </nav>
+{% extends "base.html" %} 
+{% block content %}
     
-    <main class="grid-bg">
-        <div class = "main-text">
-            <h2>Travel cat</h2>
-        <p class = "intro">
-            Your curious cat, your world of wonders.
-        </p>
-        <p>
-            Exploring the world with kittens through food, clothing, accommodation and transportation.
-        </p>
-        <a href="../templates/homepage.html" class = "getStart">Get Start</a>
-        </div>
-        
-        <img class = "right" src="../static/img/cat_white_autumn.png" alt="image of startPic" width="600">
-    </main>
-       
+<main class="grid-bg">
+    <div class = "main-text">
+        <h2>Travel cat</h2>
+    <p class = "intro">
+        Your curious cat, your world of wonders.
+    </p>
+    <p>
+        Exploring the world with kittens through food, clothing, accommodation and transportation.
+    </p>
+    <a href="../templates/homepage.html" class = "getStart">Get Start</a>
+    </div>
+    
+    <img class = "right" src="../static/img/cat_white_autumn.png" alt="image of startPic" width="600">
+</main>
+
+{% endblock %}
 
 
 
-    <footer>
-        <div>
-            <h2>Cookies</h2>
-            <p>
-                We use cookies to enhance and promote our services. Choose “Accept All” to agree to the current cookie settings or “Customize” to make individual choices and get details on the cookies in use.Visit our Cookie Policy page to learn more.
-            </p>
-            <a href="#">Accept cookies</a>
-        </div>
-        
-    </footer>
-
-    <script src = "../static/js/main.js"></script>
-</body>
-</html>
