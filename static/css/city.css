@@ -1,0 +1,242 @@
+/* ---------------------------Different part setting(各区域样式）-------------------------- */
+.citypage {
+    margin: 30px 0px;
+    margin-bottom: 300px;
+    max-width: 95%;
+    min-height: 100vh;
+    border: 0px;
+    /* position: relative;
+        top: 20px; */
+}
+
+.citypage h1{
+    margin: 0px 0px;
+
+    font-size: 70px;
+    font-family: 'TitleFont', sans-serif;
+    letter-spacing: 3px;
+}
+
+.citypage h2 {
+    font-size: 30px;
+    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.citypage img {
+    border-radius: 15px;
+    margin: 30px 0px;
+}
+
+.cityContent {
+    max-width: 120vh;
+    /* margin: 0 auto; */
+}
+
+.citydiv {
+    margin-bottom: 120px;
+}
+
+
+.citydiv p {
+    margin-bottom: 30px;
+}
+
+.citydiv ul {
+    margin-top: 90px;
+}
+.citydiv li {
+    margin: 4px;
+}
+
+.TorontoPicRaw{
+    height: 200px;
+    justify-content: space-between;
+
+    position: relative;
+    left: -30px;
+}
+
+.TorontoPicRaw img{
+    width: auto;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.TorontoPicLang{
+    width: 60%;
+    margin-right: 350px;
+}
+.TorontoPicLang h2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.getStart{
+    padding: 10px 25px;
+    top: 100px;
+}
+/* ------------------seulo------------------ */
+.citypage-s {
+    margin: 30px 0px;
+    margin-bottom: 300px;
+    max-width: 95%;
+    min-height: 100vh;
+    border: 0px;
+    /* position: relative;
+        top: 20px; */
+}
+
+.citypage-s h1 {
+    margin: 0px 0px;
+
+    font-size: 70px;
+    font-family: 'TitleFont', sans-serif;
+    letter-spacing: 3px;
+}
+
+.citypage-s h2 {
+    font-size: 30px;
+    font-weight: 500;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.citypage-s img {
+    height: 560px;
+    width: auto;
+    border-radius: 5px;
+    margin: 30px 10px;
+}
+
+.cityContent {
+    max-width: 120vh;
+    margin: 0 auto;
+}
+
+.citydiv img {
+    height: 200px;
+    width: auto;
+    border-radius: 5px;
+    margin: 30px 10px;
+}
+
+
+.seoul-lang {
+    width: 50%;
+    margin-right: 30px;
+}
+
+.seu-treIma {
+    height: 380px;
+}
+
+.seu-treIma img {
+    height: 320px;
+}
+
+/* ------------------paris------------------ */
+.paristitle {
+    width: 75%;
+    min-height: 700px;
+    margin: 0 auto;
+}
+
+.paristitle h1 {
+    font-size: 95px;
+}
+
+.paristitle img {
+    margin: 0;
+}
+
+.paristitle p {
+    width: 70%;
+    font-size: 14px;
+    margin-top: auto;
+}
+
+.parisPic img {
+    height: 280px;
+}
+
+.paris-lang {
+    margin-right: auto;
+    font-size: 15px;
+}
+
+.paris-lang img {
+    width: 400px;
+    height: auto;
+    margin-right: 80px;
+}
+
+.paris-lang h3 {
+    margin: 0;
+    margin-top: 10px;
+}
+
+.paris-lang p {
+    margin: 2px;
+}
+/* --------------------------note function---------------------------- */
+.note {
+    margin-bottom: 110px;
+}
+
+.addnote{
+    margin: 30px;
+    display: none;
+}
+
+.addnote.show {
+    display: flex;
+}
+
+.editnote {
+    display: none;
+}
+
+.editnote.show {
+    display: flex;
+}
+
+.noteContent{
+    color: rgb(93, 125, 184);
+}
+
+.noteContent.hidden {
+    display: none;
+}
+#notearea.edit-mode .noteContent {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f6f6f6;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    list-style-position: inside;
+}
+
+.littleIcon {
+    width: 80px;
+    height: 35px;
+    padding: 0 !important;
+    
+    display: flex;
+    /* 让内容居中 */
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    cursor: pointer;
+    top: 30px;
+}
+
+.editnote{
+        margin: 30px;
+        margin-bottom: 80px;
+    }
+.editnote div {
+    display: flex;
+    gap: 20px;
+}

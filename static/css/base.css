@@ -1,0 +1,522 @@
+/* -----------------------------------font------------------------------------------ */
+@font-face {
+    font-family: "Stack_Sans_Notch";
+    src: url("/static/font/Stack_Sans_Notch/StackSansNotch-VariableFont_wght.ttf") format("truetype");
+    font-weight: 200 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Stack_Sans_Notch";
+    src: url("/static/font/Stack_Sans_Notch/static/StackSansNotch-ExtraLight.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TitleFont';
+    src: url('/static/font/HalfTermSchoolsOut-V4q5l.ttf') format('truetype'),
+}
+/* -----------------------------------default------------------------------------------ */
+/* --Custom variable（自定义变量）-- */
+:root {
+--color-primary: #ffd175;/* 默认主色 */
+--color-text: #222;/* 默认字体颜色 */
+}
+
+/* --animate-- */
+#notearea.edit-mode .noteContent:hover,
+.cityBtn:hover,
+.siglecity>a:hover,
+.getStart:hover,
+.exit-icon:hover{
+    outline: none;
+    box-shadow: 0 5px 2px rgba(0, 0, 0, .3);
+    transform: scale(1.05);
+}
+
+.btnArea button:hover{
+    background: rgba(237, 63, 39, 1);
+    color: #f7f7f7;
+    outline: none;
+    text-align:center;
+    transform: scale(1.1);
+}
+
+/* --special effect-- */
+.right {
+    /* --向右对齐-- */
+    float: right;
+}
+
+.row {
+    /* --横排并列-- */
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    /* --竖排并列-- */
+    display: flex;
+    flex-direction: column;
+}
+
+.row-center{
+    /* 横排居中 */
+    display: flex;
+    justify-content: center;
+}
+
+.column-center{
+    /* 竖排居中 */
+    display: flex;
+    align-items: center;
+}
+
+.split {
+    column-count: 2;
+    /* 分成两列 */
+    column-gap: 100px;
+    /* 列间距（可调整） */
+    text-align: justify;
+    /* 让文字更整齐，可选 */
+}
+/* --Global setting（全局默认样式） */
+body {
+    border: 0px solid rgba(0, 0, 0, 0);
+    padding: 5px;
+    margin: 5px;
+
+    color: var(--color-text);
+    font-family: 'Stack_Sans_Notch', sans-serif;
+    font-size: 16px;
+
+    background-color: #ffffff;
+    opacity: 1;
+    /* 透明度 */
+}
+/* --tag default setting（标签默认样式） */
+img {
+    /* --图片-- */
+    border: 0px solid rgba(0, 0, 0, 0);
+    border-radius: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+button{
+    /* --按钮-- */
+    border: none;
+    /* 去掉按钮框 */
+    border-radius: 17px;
+    background: transparent;
+    /* 去掉按钮色 */
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+        /* 让鼠标变成小手 */
+}
+
+/* ---------------------------Different part setting(各区域样式）-------------------------- */
+/* -----------------------nav--------------------- */
+.nav{
+    /* --导航区-- */
+    width: 100%;/* 宽度 */
+    height: 100px;/* 高度 */
+
+    color: var(--color-text);/* 字体颜色 */
+    background-color: #ffffff;/* 背景颜色 */
+
+    display: flex;
+}
+
+.nav-logo{
+    /* --导航区logo-- */
+    width: 80px;/* 宽度 */    
+}
+/* ----------------search----------------- */
+.nav-search {
+    /* --导航区搜索框-- */
+    width: 280px;
+    /* 宽度 */
+    padding: 15px 10px;
+    /* 内边距:高、宽 */
+
+    border: 0px solid rgb(255, 255, 255);
+    border-radius: 17px;
+
+    background-color: #f2f2f2;
+    /* 背景颜色 */
+
+    position: relative;
+        top: 10px;
+        left: 30px;
+}
+.search-icon {
+    /* --导航区搜索框图标-- */
+    width: 20px;
+    border: none;
+    background: transparent;
+
+    padding: 0;
+
+    position: relative;
+        top: 7px;
+        right: 5px;
+}
+/* ----------------nav-link----------------- */
+.nav-link>a {
+    /* --导航区按钮链接-- */
+    padding: 10px 5px;
+    /* 内边距:高、宽 */
+    border-radius: 17px;
+    /* 圆角 */
+    margin: 15px;
+
+    font-size: var(--button-textSize);
+    /* 字体大小 */
+    text-decoration: none;
+    /* 去掉下划线 */
+
+    position: relative;
+        /* 位置 */
+        top: 17px;
+        /* 向下移动 */
+        left: 30px;
+        /* 向右移动 */
+}
+
+.nav-link img {
+    /* --导航区logo-- */
+    width: 25px;
+    /* 宽度 */
+    padding: 1px 4px;
+    /* 内边距:高、宽 */
+
+    position: relative;
+    /* 位置 */
+        top: 2px;
+        /* 向下移动 */
+        left: 2px;
+        /* 向右移动 */
+}
+/* ----------------login----------------- */
+.login-icon {
+    /* --登录按钮-- */
+    width: 140px;
+    padding: 5px 4px;
+    /* 内边距:高、宽 */
+
+    position: relative;
+    /* 位置 */
+        top: 10px;
+        right: 5px;
+}
+/* ----------------login interface----------------- */
+.login {
+    /* --登录界面-- */
+    width: 400px;
+    height: 600px;
+
+    border-radius: 20px;
+    border: none;
+    /* 去掉边框 */
+
+    background: rgba(245, 245, 245, 0.5);
+    /* 界面色 */
+    backdrop-filter: blur(20px);
+    /* 磨砂玻璃效果 */
+    -webkit-backdrop-filter: blur(20px);
+    /* safari */
+
+    position: relative;
+    /* 位置 */
+    top: 50px;
+    /* 向下移动 */
+    right: 5px;
+    /* 向右移动 */
+}
+
+.login img {
+    /* --登录界面logo-- */
+    width: 60px;
+    /* 宽度 */
+    border-radius: 20px;
+    /* 圆角 */
+    margin-bottom: 24px;
+    /* 下边距 */
+
+    position: relative;
+    /* 位置 */
+    top: 30px;
+    /* 向下移动 */
+    left: 45px;
+    /* 向右移动 */
+}
+
+.login h3 {
+    /* --登录界面标题-- */
+    font-size: 25px;
+    /* 字体大小 */
+
+    display: inline;
+    /* 位置 */
+    position: relative;
+    /* 位置 */
+    bottom: 10px;
+    /* 向下移动 */
+    left: 65px;
+    /* 向右移动 */
+}
+
+.loginForm {
+    /* 登录表单 */
+    margin: 24px;
+    /* 外边距 */
+
+    position: relative;
+    /* 位置 */
+    top: 30px;
+    /* 向下移动 */
+}
+
+.loginForm label {
+    /* 登录表单title */
+    width: "pxwidth=device-width";
+    /* 宽度 */
+    padding: 5px 10px;
+    /* 内边距：高、宽*/
+
+    display: block;
+    /* 显示：块 */
+
+    font-size: 16px;
+    /* 字体大小 */
+    font-weight: 600;
+    /* 字体宽度 */
+}
+
+.loginForm input {
+    width: 280px;
+    /* 宽度 */
+    padding: 15px 10px;
+    /* 内边距:高、宽 */
+
+    background-color: #ffffff67;
+    font-size: 14px;
+    font-weight: 600;
+
+    border: none;
+    /* 删除边界框*/
+    border-radius: 13px;
+
+    position: relative;
+        top: 10px;
+}
+
+.NoAccount {
+    /* --切换signup-- */
+    margin: 0;
+    padding: 0;
+    width: auto;
+
+    font-size: 14px;
+
+    display: inline-block;
+    position: relative;
+        top: 30px;
+        left: 30px;
+}
+
+.errortint {
+    /* --用户错误提示-- */
+    margin: 0;
+    padding: 0;
+    width: auto;
+
+    font-size: 14px;
+    color: crimson;
+
+    position: relative;
+        top: 10px;
+        left: 30px;
+    }
+
+.toSignUp {
+    /* --signup-- */
+    border: none;
+    /* 去掉按钮框 */
+    background: transparent;
+    /* 去掉按钮色 */
+
+    color: mediumblue;
+    cursor: pointer;
+    /* 让鼠标变成小手 */
+}
+
+.signin {
+    /* --登录按钮-- */
+    width: 80%;
+    height: 50px;
+    /* 按钮宽高 */
+
+    border-radius: 15px;
+    border: none;
+    /* 去掉边框 */
+    background: black;
+    /* 按钮色 */
+
+    color: #ddd;
+    font-size: var(--button-textSize);
+    font-weight: 700;
+
+    position: relative;
+        top: 80px;
+        left: 30px;
+}
+
+#closeLogin,
+#closeSignUp {
+    /* --取消按钮-- */
+    width: 80%;
+    height: 50px;
+    /* 高度 */
+
+    border-radius: 15px;
+    border: none;
+    /* 去掉边框 */
+    background: rgb(148, 148, 148);
+    /* 按钮色 */
+
+    color: #ddd;
+    font-size: var(--button-textSize);
+    font-weight: 700;
+
+    position: relative;
+        top: 100px;
+        left: 30px;
+}
+/* ----------------user area----------------- */
+.userarea {
+    position: relative;
+    display: inline-block;
+}
+
+.photo {
+    /* --用户头像框-- */
+    width: 80px;
+    height: 80px;
+
+    border: 3px dashed rgb(0, 0, 0);
+    border-radius: 50%;
+    /* 圆角 */
+    overflow: hidden;
+    /* 裁掉溢出的部分 */
+    background: rgb(234, 242, 248);
+
+    cursor: pointer;
+    /* 让鼠标变成小手 */
+
+    position: relative;
+    right: 25px;
+}
+
+.photo img {
+    /* --用户头像-- */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /*图片按比例填满 */
+    object-position: center;
+    /* 居中显示 */
+}
+
+.menu {
+    /* --菜单界面-- */
+    width: 220px;
+    height: 160px;
+    border-radius: 20px;
+    border: none;
+    /* 去掉边框 */
+
+    background: rgb(239, 243, 243);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    /* 默认隐藏 */
+    display: none;
+
+    position: absolute;
+        top: 100%;
+        right: 30px;
+}
+.menu p{
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 22px;
+
+    position: relative;
+        top: 25px;
+        left: 7px;
+}
+
+.exit-icon {
+    /* --登出按钮-- */
+    width: 120px;
+    height: 40px;
+    padding: 5px 4px;
+    /* 内边距:高、宽 */
+    border-radius: 10px;
+    border: none;
+    /* 去掉边框 */
+
+    background: rgb(81, 108, 131);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+
+    color: aliceblue;
+    font-size: var(--button-textSize);
+    cursor: pointer;
+
+    position: relative;
+        top: 50px;
+        right: -45px;
+    
+    display: inline-block;
+        transition: transform .2s ease,
+            box-shadow .2s ease;
+}
+/* ------------------ Cookie Banner ------------------ */
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    width: 300px;
+    padding: 16px;
+
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    font-size: 14px;
+    color: var(--color-text);
+
+    z-index: 9999;
+}
+
+.cookie-banner h2 {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.cookie-banner a {
+    display: inline-block;
+    margin-left: 10px;
+    color:mediumblue;
+    font-size: 13px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+

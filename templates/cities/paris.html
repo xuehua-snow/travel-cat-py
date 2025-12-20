@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block Title %}Paris{% endblock %}
+
+{% block content %}
+<main class="row-center">
+    <div class="citypage-s column">
+
+        <div class="paristitle">
+            <div class="TorontoLang row">
+                <div class="seoul-lang column">
+                    <h1>
+                        Paris
+                    </h1>
+                    <h2>History</h2>
+                    <p>
+                        The Romans originally named it Lutetia, which was renamed Paris in the 4th century. It became the capital of France in
+                        the 10th century. Major events include the French Revolution (1789), occupation during World War II, and the 1968
+                        student protests.
+                        <br>
+                        <br>
+                        The metro opened in 1900. Today it ranks among the world's most extensive subway systems, with stations often decorated
+                        with themes reflecting local history.
+                        <br>
+                        <br>
+                        The Eiffel Tower was originally intended as a temporary structure. Built for the 1889 World's Fair, it was designed to
+                        last only 20 years. Gustave Eiffel persuaded authorities to preserve the tower by demonstrating its practical value in
+                        scientific experiments, including radio transmission.
+                    </p>
+                </div>
+                <div class="right">
+                    <img src="/static/img/city/paris.png" alt="image of city" width="300" class="right">
+                </div>
+            </div>
+        </div>
+
+        <div class="cityContent">
+            
+            <div class="citydiv">
+                <div class="parisPic row-center">
+                    <img src="/static/img/city/paris-2-1.png" alt="image of city" width="200">
+                    <img src="/static/img/city/paris-2-2.png" alt="image of city" width="200">
+                </div>
+                <div class="TorontoLang row">
+                    <div class="seoul-lang column">
+                        <h2>Population &<br> Language</h2>
+                        <p>
+                            Set in the Paris Opera House, a masked man haunts the theater and falls in love with a young soprano. 
+                            <br>
+                            <br>
+                            Inspired by events and mysterious phenomena occurring in the opera house's basement.
+                        </p>
+                    </div>
+                    <div class="seoul-lang column">
+                        <h2>Phantom Trains</h2>
+                        <p>
+                            Mysterious legends of phantom subways circulate in New York and Paris, often linked to tragic accidents or ghostly
+                            apparitions—suddenly appearing and vanishing without a trace.
+                        </p>
+                    </div>
+                    <div class="seoul-lang column">
+                        <h2>aris Catacombs</h2>
+                        <p>
+                            This vast underground ossuary holds the remains of over six million people, notorious for eerie tales, secret
+                            gatherings, and bizarre disappearances.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="paris-lang citydiv">
+                <div class=" row">
+                    <div>
+                        <img src="/static/img/city/paris-lang.png" alt="image of city" width="600" class="right">
+                    </div>
+                    <div class="paris-lang column right">
+                        <h2>Trending</h2>
+                        <p>
+                            Hottest Song: “Melodrama” by Disiz & Theodora is #1.<br><br>
+                        </p>
+                        <h3>Popular Foods</h3>
+                        <p>
+                            Croissants, Macarons, Escargots, Cheese, Baguettes, Duck confit.<br><br>
+                        </p>
+                        <h2>Population &<br> Language</h2>
+                        <p>
+                            11.3 million in metro area; 2.1 million in city prope.<br><br>
+                        </p>
+                        <h3>Language</h3>
+                        <p>
+                            French (official); English spoken in tourist areas.<br><br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {% if session.get("logged_in") %}
+            <div class="note">
+                <h2>Note:</h2>
+                <button id="addnote">+ Add</button><br>
+                <button id="editnote">+ Edit</button>
+                <ul id="notearea">
+                    {% for note in note %}
+                    <li data-id="{{ note.id }}" class="noteContent">
+                        {{ note.content }}
+                    </li>
+                    <form action="/editnote" method="POST" class="editnote column">
+                        <input type="hidden" name="city" value="paris">
+                        <input type="hidden" name="note_id" value="{{ note.id }}">
+                        <textarea name="content" rows="14" cols="100" required>{{ note.content }}</textarea>
+                        <div>
+                            <a class="cancelEditnote getStart littleIcon">Cancle</a>
+                            <button type="submit" class="getStart littleIcon">Submit</button>
+                        </div>
+                    </form>
+                    {% endfor %}
+                </ul>
+            
+                <form action="/addnote" method="POST" id="addnoteForm" class="addnote column">
+                    <input type="hidden" name="city" value="paris">
+                    <input type="hidden" name="country" value="england">
+                    <textarea name="content" rows="14" cols="100" required></textarea>
+                    <input name="Submit" type="submit" class="getStart littleIcon">
+                </form>
+            </div>
+            {% endif %}
+
+            <div>
+                <a href="/homepage" class="getStart">Go Back</a>
+            </div>
+        </div>
+
+    </div>
+</main>
+{% endblock %}

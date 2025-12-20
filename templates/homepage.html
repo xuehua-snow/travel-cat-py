@@ -1,124 +1,106 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="jpg" href="./images/cat.jpg">
-  <link rel="stylesheet" href="../css/css.css" />
-  <title>Travel Cat</title>
+{% extends "base.html" %}
 
-  <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
-  <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
-  <style>
-    body { margin: 0; padding: 0; }
-    #map { width: 800px; height: 600px; }
-  </style>
-</head>
+<!-- ////////////////////////////////////////////////// -->
+{% block Title %}Map{% endblock %}
 
-<body>
-  <nav class = "nav">
-        <dev>
-            <img src="../images/WebLogo.png" alt="image of a WebLogo" width="50">
-        </dev>
-        <dev>
-            <form action="processing-script.php" method="GET">
-                <input name="search" name="search" placeholder="Search">
-            </form>
-        </dev>
-        <dev>
-            <a href="./homepage.html">Home</a>
-            <a href="./page/cityslist.html">Citys</a>
-            <a href="./page/about.html">About</a>           
-        </dev>
-        <dev class = "right">
-            <button id="openLogin">Login</button>
-            <!-- ※ ※ ※  login的图标需要做成下划线式而不是按钮式，需要在CSS完成 -->
-            <!-- <button id="openSignUp">Sign up</button> -->
-            <!-- ※ ※ ※  login和signup需不需要分开做？？ -->
+<!-- ////////////////////////////////////////////////// -->
+{% block Map_Link %}
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
+<link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.1.0/mapbox-gl-geocoder.css"
+    type="text/css" />
 
-            <dialog id="loginDialog">
-                <form action="processing-script.php" method="POST" >
-                    <h3>Login</h3>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <input type="password" name="password" placeholder="Password" required>
-                    <div>
-                        <button type="submit">Sign in</button>
-                        <button type="button" id="closeLogin">Cancel</button>
-                    </div>
-                </form>
-            </dialog>
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.1.0/mapbox-gl-geocoder.min.js"></script>
 
-        </dev>
-    </nav>
+{% endblock %}
 
-    <main class = "mapArea">
-        <div id="map"></div>
-            <script>
-                mapboxgl.accessToken = 'pk.eyJ1IjoiaDg2OTY2MTM2OCIsImEiOiJjbWgweXdiYXIyam4zMmpxMm4xdzVxdDZ3In0.ss474gDeBh40T0_8FFKw2A';
-                const map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v12', // 样式ID
-                center: [-79.3832, 43.6532], // 多伦多坐标
-                zoom: 12
-                });
+<!-- ////////////////////////////////////////////////// -->
+{% block content %}
 
-                // 添加缩放控件
-                map.addControl(new mapboxgl.NavigationControl());
-
-                // 添加标记
-                new mapboxgl.Marker().setLngLat([-79.3832, 43.6532]).addTo(map);
-            </script>
-
-        <div>
-            <button id="openShop">Shop</button>
-            <button id="openWeather">Weather</button>
-            <button id="openHotels">Hotels</button>
+<main  class="row-center column">
+    <div class = "mapArea">
+        <div class = "btnArea column">
+            <button id="openWeather"><span class="text">Weather</span></button>
+            <button id="openShop"><span class="text">Shop</span></button>
+            <button id="openHotels"><span class="text">Hotel</span></button>
+            <img src="/static/img/cat/IMG_3492.JPG" alt="cat" width="300" id="Cat" class="Cat">
         </div>
-    </main>
+
+        <!-- {% if session.get("logged_in") %}
+            <div id="notearea" class="userarea">
+                <p>test</p>
+                <div class="photo">
+                    <img src="/static/icon/cat.jpg" alt="photo" width="50">
+                </div>
+                <div id="menuBox" class="menu">
+                    <p>Hello, {{ session.get("username") }}</p>
+                    <form action="/logout" method="POST">
+                        <button class="exit-icon" type="submit">Log out</button>
+                    </form>
+                </div>
+            </div>
+        {% endif %} -->
+        
+        <div id="map"></div>
+        <script src="/static/js/map.js"></script>
+    </div>
+   
+    <div class="cityarea row-center">
+        <div class="citys row-center column">
+            <h2 class="row-center">
+                Cities
+            </h2> 
+            <div class="siglecity row">
+                <a href="/cityslist/toronto" class="cityphoto">
+                    <img src="/static/img/city/Toronto.png" alt="cityimg" width="700">
+                </a>
+                <div class="btnContent column">
+                    <h3>Toronto</h3>
+                    <p>
+                        Toronto is Canada’s largest city and serves as the nation’s economic and cultural hub. Known for its diversity, safety,
+                        strong educational resources, and vibrant arts scene, it is a major destination for international students and
+                        newcomers.
+                    </p>
+                </div>
+            </div>
+            <div class="siglecity row">
+                <a href="/cityslist/seulo" class="cityphoto">
+                    <img src="/static/img/city/seoul-lang.png" alt="cityimg" width="200">
+                </a>
+                <div class="btnContent column">
+                    <h3>Seulo</h3>
+                    <p>
+                        Seoul is South Korea’s center of politics, economy, and technology, known for its fast-paced urban development and
+                        advanced public infrastructure. The blend of traditional culture and modern cityscape makes it one of Asia’s most
+                        globalized metropolitan areas.
+                    </p>
+                </div>
+            </div>
+            <div class="siglecity row">
+                <a href="/cityslist/paris" class="cityphoto">
+                    <img src="/static/img/city/paris-2-1.png" alt="cityimg" width="100">
+                </a>
+                <div class="btnContent column">
+                    <h3>Paris</h3>
+                    <p>
+                        Paris, the capital of France, is renowned worldwide for its art, fashion, and architectural heritage. With deep cultural
+                        roots, numerous museums, and iconic historical landmarks, it stands as one of the world’s most influential destinations
+                        for tourism and cultural exchange.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
+
+
+
   
     
 
-    <div class = "citys">
-        <h2>Citys</h2>
-            
-            <div class = "Industry">
-                <div>
-                    <h3>[Content to be replaced]</h3>
-                    <p>[Content to be replaced]Weather:Rain</p>
-                    <!-- <img src="./images/manga.png" alt="image of City" width="500"> -->
-                    <p>
-                        History:[Content to be replaced]Toronto was founded as the Town of York and capital of Upper Canada in 1793 after the Mississaugas sold the land to the British in the Toronto Purchase.[1] For over 12,000 years, Indigenous People have lived in the Toronto area. The ancestors of the Huron-Wendat were the first known groups to establish agricultural villages in the area about 1,600 years ago.[2]
-                    </p>
-                    <p><a href="./cityspage/templatepage.html">More</a></p>
-                </div>
 
-                <div>
-                    <h3>[Content to be replaced]</h3>
-                    <p>[Content to be replaced]Weather:Rain</p>
-                    <!-- <img src="./images/manga.png" alt="image of City" width="500"> -->
-                    <p>
-                        History:[Content to be replaced]Toronto was founded as the Town of York and capital of Upper Canada in 1793 after the Mississaugas sold the land to the British in the Toronto Purchase.[1] For over 12,000 years, Indigenous People have lived in the Toronto area. The ancestors of the Huron-Wendat were the first known groups to establish agricultural villages in the area about 1,600 years ago.[2]
-                    </p>
-                    <p><a href="./cityspage/templatepage.html">More</a></p>
-                </div>
-                
-            </div>
-            <br>
-       
-
-    </div>
-
-    <footer>
-        <div>
-            <h2>Cookies</h2>
-            <p>
-                We use cookies to enhance and promote our services. Choose “Accept All” to agree to the current cookie settings or “Customize” to make individual choices and get details on the cookies in use.Visit our Cookie Policy page to learn more.
-            </p>
-            <a href="#">Accept cookies</a>
-        </div>
-        
-    </footer>
-
-    <script src = "../js/main.js"></script>
-</body>
-</html>

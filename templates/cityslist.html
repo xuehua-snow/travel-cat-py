@@ -3,46 +3,64 @@
 {% block Title %}Cities{% endblock %}
 
 {% block content %}
-    <main>
-        <div class = "articles">
-            <h2>Citys</h2>
-            
-            <div class = "Industry">
-                <div>
-                    <h3><a href="../articles/manga-wiki.html">[Content to be replaced]</a></h3>
-                    <p>[Content to be replaced]</p>
-                    <img src="../images/manga.png" alt="image of City" width="300">
+    <main class="row-center column">
+        <div class="cityarea row-center row">
+            <div class="citys row-center column">
+                <h2 class="row-center">
+                    Cities
+                </h2>
+                <div class="siglecity row">
+                    <div class="btnContent column citiesContent">
+                        <a href="/cityslist/toronto" >
+                            <h3>Toronto</h3>
+                        </a>
+                        <p>
+                            Toronto is Canada’s largest city and serves as the nation’s economic and cultural hub. Known for its diversity, safety,
+                            strong educational resources, and vibrant arts scene, it is a major destination for international students and
+                            newcomers.
+                    </p>
+                    </div>
+                    <div class="cityphoto">
+                        <img src="/static/img/city/Toronto.png" alt="cityimg" width="700">
+                    </div>
                 </div>
-                <br>
-
-                <div>
-                    <h3><a href="../articles/manga-market.html">[Content to be replaced]</a></h3>
-                    <p>[Content to be replaced]</p>
-                    <img src="../images/manga-analysis-report.png" alt="image of City" width="800">
+                <div class="siglecity row">
+                    <div class="btnContent column citiesContent" >
+                        <a href="/cityslist/seulo">
+                            <h3>Seulo</h3>
+                        </a>
+                        <p>
+                            Seoul is South Korea’s center of politics, economy, and technology, known for its fast-paced urban development and
+                            advanced public infrastructure. The blend of traditional culture and modern cityscape makes it one of Asia’s most
+                            globalized metropolitan areas.
+                        </p>
+                    </div>
+                    <div class="cityphoto">
+                        <img src="/static/img/city/seoul-lang.png" alt="cityimg" width="200">
+                    </div>
                 </div>
-                <br>
-
-                <div>
-                    <h3><a href="../articles/manga-market.html">[Content to be replaced]</a></h3>
-                    <p>[Content to be replaced]</p>
-                    <img src="../images/manga-analysis-report.png" alt="image of City" width="800">
+                <div class="siglecity row">
+                    <div class="btnContent column citiesContent" >
+                        <a href="/cityslist/paris">
+                            <h3>Paris</h3>
+                        </a>
+                        <p>
+                            Paris, the capital of France, is renowned worldwide for its art, fashion, and architectural heritage. With deep cultural
+                            roots, numerous museums, and iconic historical landmarks, it stands as one of the world’s most influential destinations
+                            for tourism and cultural exchange.
+                        </p>
+                    </div>
+                    <div class="cityphoto">
+                        <img src="/static/img/city/paris-2-1.png" alt="cityimg" width="100">
+                    </div>
                 </div>
-                <br>
-
-                <div>
-                    <h3><a href="../articles/manga-market.html">[Content to be replaced]</a></h3>
-                    <p>[Content to be replaced]</p>
-                    <img src="../images/manga-analysis-report.png" alt="image of City" width="800">
+                <div class="backBtn">
+                    <a href="/homepage" class="getStart">Go Back</a>
                 </div>
-                <br>
+        
             </div>
-            <br>
+
         </div>
-                
-        <div>
-            <p>
-                    <a href="../homepage.html">&lt;Go  Back</a>
-                </p>
-        </div>
+        
     </main>
 {% endblock %}
