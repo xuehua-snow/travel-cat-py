@@ -1,8 +1,9 @@
 name: Deploy to cPanel
 
 on:
-  push:
-    branches: [ dev ]   # 跟踪 dev
+  workflow_dispatch:
+  # push:
+    # branches: [ dev ]   # 跟踪 dev
 
 jobs:
   deploy:
