@@ -12,13 +12,25 @@ app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST')
 app.config['MYSQL_USER'] = os.getenv('MYSQL_USER')
 app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD')
 app.config['MYSQL_DB'] = os.getenv('MYSQL_DB')
+app.config['MYSQL_PORT'] = os.getenv('MYSQL_PORT')
+
+
+# def get_db():
+#     return mysql.connector.connect(
+#         host=app.config['MYSQL_HOST'],
+#         user=app.config['MYSQL_USER'],
+#         password=app.config['MYSQL_PASSWORD'],
+#         database=app.config['MYSQL_DB']
+#     )
 
 def get_db():
     return mysql.connector.connect(
         host=app.config['MYSQL_HOST'],
+        port=int(app.config.get('MYSQL_PORT', 3306)),
         user=app.config['MYSQL_USER'],
         password=app.config['MYSQL_PASSWORD'],
-        database=app.config['MYSQL_DB']
+        database=app.config['MYSQL_DB'],
+        ssl_disabled=False
     )
 
 # --------------------------route-------------------------------
@@ -59,7 +71,7 @@ def toronto():
         cursor.execute(note_sql, note_values)
         note = cursor.fetchall()
     else:
-        note = set()
+        note = []
 
     cursor.close()
     conn.close()
