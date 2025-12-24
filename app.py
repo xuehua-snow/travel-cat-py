@@ -2,6 +2,7 @@ from flask import Flask, render_template, request,redirect,session,jsonify
 from dotenv import load_dotenv
 import os
 import mysql.connector
+from mysql.connector import pooling
 
 load_dotenv()
 
@@ -23,15 +24,29 @@ app.config['MYSQL_PORT'] = os.getenv('MYSQL_PORT')
 #         database=app.config['MYSQL_DB']
 #     )
 
+# def get_db():
+#     return mysql.connector.connect(
+#         host=app.config['MYSQL_HOST'],
+#         port=int(app.config.get('MYSQL_PORT', 3306)),
+#         user=app.config['MYSQL_USER'],
+#         password=app.config['MYSQL_PASSWORD'],
+#         database=app.config['MYSQL_DB'],
+#         ssl_disabled=False
+#     )
+
+db_pool = pooling.MySQLConnectionPool(
+    pool_name="main_pool",
+    pool_size=10,  # 小项目 3–10 都可以
+    host=app.config['MYSQL_HOST'],
+    port=app.config['MYSQL_PORT'],
+    user=app.config['MYSQL_USER'],
+    password=app.config['MYSQL_PASSWORD'],
+    database=app.config['MYSQL_DB']
+    ssl_disabled=False
+)
+
 def get_db():
-    return mysql.connector.connect(
-        host=app.config['MYSQL_HOST'],
-        port=int(app.config.get('MYSQL_PORT', 3306)),
-        user=app.config['MYSQL_USER'],
-        password=app.config['MYSQL_PASSWORD'],
-        database=app.config['MYSQL_DB'],
-        ssl_disabled=False
-    )
+    return db_pool.get_connection()
 
 # --------------------------route-------------------------------
 @app.route("/")
