@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block Prohibit_caching %}{% endblock %}
+
+    <title>{% block Title %}{% endblock %}</title>
+    <link rel="icon" type="jpg" href="/static/icon/WebIcon2.png">
+
+    <!-- Map Link -->
+    {% block Map_Link %}{% endblock %}
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="/static/css/base.css" />
+    <link rel="stylesheet" href="/static/css/start.css" />
+    <link rel="stylesheet" href="/static/css/homepage.css" />
+    <link rel="stylesheet" href="/static/css/city.css" />
+    <link rel="stylesheet" href="/static/css/about.css" />
+    <link rel="stylesheet" href="/static/css/other.css" />
+</head>
+<body>
+    <nav class = "nav">
+        <dev>
+            <img src="/static/icon/WebIcon2.png" alt="image of a WebLogo" class = "nav-logo">
+        </dev>
+        <dev >
+            <form action="/searchcity" method="POST">
+                <input name="search" placeholder="Search" class = "nav-search">
+                <button class="search-icon" ><img src="/static/icon/search-icon.png" alt="SearchIcon" class="search-icon"></button>
+            </form>
+        </dev>
+
+        <dev class = "nav-link">
+            <a href="/homepage">
+                Home
+                <img src="/static/icon/home-icon.png" class="nav-icon" alt="home-icon">
+            </a>
+            <a href="/cityslist">
+                Citys
+                <img src="/static/icon/map-icon.png" class="nav-icon" alt="city-icon">
+            </a>
+            <a href="/about">
+                About 
+                <img src="/static/icon/cat-icon.png" class="nav-icon" alt="about-icon">
+            </a>           
+        </dev>
+        
+        <dev class = "right">
+            {% if session.get("logged_in") %}
+            <div id="userarea" class="userarea">
+                <div class="photo">
+                    <img src="/static/icon/cat.jpg" alt="photo" width="50">
+                </div>
+                <!-- exit -->
+                <div id="menuBox" class="menu">
+                    <p>Hello, {{ session.get("username") }}</p>
+                    <form action="/logout" method="POST">
+                        <button class="exit-icon" type="submit">Log out</button>
+                    </form>
+                </div>
+            </div>
+            {% else %}
+            <button id="openLogin" class="login-icon">Login | Sign up</button>
+            {% endif %}
+
+            <dialog id="loginDialog" class = "login">
+                <form id="loginForm" action="#" method="POST">
+                    <div class = "login-title">
+                        <img src="/static/icon/WebIcon2.png" alt="image of a WebLogo">
+                        <h3>Sign In</h3>
+                    </div>
+                    <div class="loginForm">
+                        <label>
+                            Name<input type="text" name="logusername" required>
+                        </label>
+                    </div>
+                    <div class="loginForm">
+                        <label>
+                            Password<input type="password" name="logpassword" required>
+                        </label>
+                    </div>
+                    <div class="NoAccount">
+                        <label>
+                            Don't have an account?
+                            <button type="button" id="openSignup" class="toSignUp">Sign up</button>
+                        </label>
+                    </div>
+                    <div class="errortint">
+                        <p id="errortint"></p>
+                    </div>
+                    
+                    <div>
+                        <button type="submit" class="signin">Sign in</button>
+                        <button type="button" id="closeLogin">Cancel</button>
+                    </div>
+                </form>
+            </dialog>
+            <dialog id="SignUpDialog" class="login">
+                <form action="/signup" method="POST">
+                    <div class="login-title">
+                        <img src="/static/icon/WebIcon2.png" alt="image of a WebLogo">
+                        <h3>SignUp</h3>
+                    </div>
+                    <div class="loginForm">
+                        <label>
+                            Name<input type="text" name="username" required>
+                        </label>
+                    </div>
+                    <div class="loginForm">
+                        <label>
+                            Password<input type="password" name="password" required>
+                        </label>
+                    </div>
+                    <div class="NoAccount">
+                        <label>
+                            Already have an account?
+                            <button type="button" id="openSignIn" class="toSignUp">Sign in</button>
+                        </label>
+                    </div>
+            
+                    <div>
+                        <button type="submit" class="signin">Sign up</button>
+                        <button type="button" id="closeSignUp">Cancel</button>
+                    </div>
+                </form>
+            </dialog>
+        </dev>
+    </nav>
+
+
+    
+    {% block content %}{% endblock %}
+
+
+
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <h2>This website uses cookies</h2>
+        <p>
+            We use cookies to enhance and improve our services. You may choose
+            “Accept cookies” or manage preferences.
+        </p>
+        <a id="cookieManage">Manage Preferences</a>
+        <a id="cookieAccept">Accept cookies</a>
+    </div>
+
+
+    <script src = "/static/js/main.js"></script>
+    <script src="/static/js/note.js"></script>
+</body>
+</html>

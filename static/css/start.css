@@ -1,0 +1,89 @@
+/* ---------------------------Different part setting(各区域样式）-------------------------- */
+.grid-bg {
+    /* --主体颜色-- */
+    min-height: 90vh;
+    margin: 0px;
+    padding: 0px 40px;
+    border-radius: 30px;
+    background-color: var(--color-primary);
+
+    align-items: center;
+    position: relative;
+        top: -50px;
+}
+
+.content{
+    margin: 40px 0px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+    position: relative;
+        top: 80px;
+}
+
+.main-text {
+    /* --主体文字-- */
+    max-width: 480px;
+    margin: 0;
+
+    flex: 0 1 40%;
+    position: relative;
+        bottom: 10px;
+        left: 80px;
+    }
+
+.grid-bg h2 {
+    /* --网站标题-- */
+    margin-top: 50px;
+    font-family: 'TitleFont', sans-serif;
+    font-size: 80px;
+    /* 字体大小 */
+}
+
+.grid-bg>img {
+    /* 图片区 */
+    flex: 0 0 auto;
+    /* 不被压扁 */
+    width: min(40vw, 600px);
+    /* 按视口宽度缩放，最大 600px */
+    height: auto;
+    /* 保持宽高比 */
+}
+
+.intro{
+    /* --网站介绍-- */
+    font-size: 30px;/* 字体大小 */  
+
+    position: relative;/* 位置 */
+        bottom: 30px;/* 向下移动 */
+        left: 0px;/* 向右移动 */
+}
+
+.grid-bg p{
+    /* --内容-- */
+    position: relative;/* 位置 */
+        bottom: 30px;/* 向下移动 */
+        left: 0px;/* 向右移动 */
+}
+
+.getStart{
+    /* --getStart按钮-- */
+    text-decoration: none;/* 去掉下划线 */
+    padding: 23px 50px;/* 按钮:高、宽 */
+
+    border-radius: 40px;
+    background: black;/* 按钮色 */
+
+    color:#ddd;
+    font-weight: 700;
+
+    position: relative;
+        top: 50px;
+        right: -15px;
+    
+    display: inline-block;
+    transition: transform .2s ease,
+            /* 缩放动画 */
+            box-shadow .2s ease;
+            /* 阴影动画 */
+}

@@ -1,0 +1,236 @@
+/* --Global setting（全局默认样式） */
+.right{
+    /* --向右对齐-- */
+    margin-left: auto;
+}
+
+/* --Different part setting(各区域样式）-- */
+/* ------------------------------map area----------------------------------- */
+.mapArea{
+    /* --地图区-- */
+    min-width: 100vh;/* 宽度 */
+    height: 70vh;/* 高度 */
+    margin: 35px 30px;
+
+    display: flex;
+}
+
+.btnArea {
+    /* --按钮区-- */
+    width: 20%;
+    height: auto;
+    align-items: flex-start;
+}
+
+#map{
+    /* --地图-- */
+    width: 80%; /* 宽度 */
+    height: 110%; /* 高度 */
+
+    border-radius:20px;/* 圆角 */
+}
+/* -------------------------map----------------------- */
+/* map search bar */
+.mapboxgl-ctrl-geocoder {
+    width: 300px;
+    max-width: 80%;
+    padding: 10px 10px;
+    
+    font-size: 14px;
+    border-radius: 17px;
+
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, .3);
+
+    position: absolute;
+        top: 40px;
+        left: 40px;
+        z-index: 999;
+}
+/* no focus line */
+.mapboxgl-ctrl-geocoder input {
+    padding: 4px 8px;
+    color: #ad2c2c;
+}
+
+.mapboxgl-ctrl-geocoder .mapboxgl-ctrl-geocoder--input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+/* search icon */
+.mapboxgl-ctrl-geocoder .mapboxgl-ctrl-geocoder--icon-search {
+    background-image: url("youricon.png") !important;
+
+    width: 30px;
+    height: 30px;
+    /* 宽高 */
+    opacity: 0.7 !important;
+
+    position: absolute;
+        top: 13px;
+        left: 196px;
+}
+/* close icon */
+.mapboxgl-ctrl-geocoder .mapboxgl-ctrl-geocoder--icon-close {
+    width: 15px;
+    height: 15px;
+    /* 宽高 */
+    opacity: 0.7 !important;
+
+    position: absolute;
+        top: 13px;
+        left: -55px;
+}
+
+/* -------pop up--------- */
+.mapboxgl-popup {
+    max-width: 260px;
+    font-family: sans-serif;
+}
+
+.mapboxgl-popup-content {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 13px;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e0e0e0;
+}
+
+.mapboxgl-popup-tip {
+    border-top-color: #ffffff !important;
+}
+/* ------------------------------------------------------------ */
+.btnArea button{
+    /* --地图按钮-- */
+    width: 170px;/* 宽度 */
+    padding:25px;
+    padding-left: 10px;
+    margin: 10px;
+
+    border: none;/* 去掉按钮框 */
+    border-radius: 25px;/* 圆角 */
+    background: transparent;/* 去掉按钮色 */
+
+    font-size: 25px;
+    font-weight:bold;
+
+    text-align: left;
+}
+.btnArea button .text {
+    margin-left: 10px;
+    /* 控制点与文字的距离 */
+}
+
+/* 圆点 */
+.btnArea button:hover::before {
+    content: "•";
+    font-size: 26px;
+    /* 圆点大小 */
+    position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+}
+/* ----------cat pic--------- */
+.Cat{
+    margin-top: auto;
+    position: relative;
+        left: -50px;
+        top: -50;
+}
+/* -----------------------city--------------------- */
+.cityarea {
+    width: 100%;
+}
+.citys{
+    /* --文章区-- */
+    width: 100%;/* 宽度 */
+    margin: 30px;
+    margin-bottom: 250px;
+}
+.citys h2{
+    margin: 10px;
+    color: rgba(104, 137, 158, 0.78);
+    font-size: 90px;
+    font-weight: 200;
+    font-family:'TitleFont',sans-serif;
+    letter-spacing: 3px;
+    
+        align-items: center;
+        gap: 90px;
+        /* 文字与线之间的间距 */
+}
+
+.citys h2::before,
+.citys h2::after {
+    content: "";
+    flex: 1;
+    /* 占满剩余空间，形成长线 */
+    height: 4px;
+    /* 线的粗细 */
+    background: rgba(204, 215, 221, 0.431);
+    /* 线的颜色，可换 */
+}
+
+/* ---------city div-------- */
+.siglecity {
+    width: 80%;
+    height: 220px;
+    margin: 5px auto;
+    padding: 10px;
+    border-bottom: 3px solid rgba(204, 215, 221, 0.431);
+    background-color: rgba(240, 240, 240, 0);
+}
+
+/* .siglecity p{
+    width: 80%;
+
+} */
+
+.cityphoto{
+    width: 300px;
+    height: 90%;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: aliceblue;
+}
+
+.cityphoto img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 等比例填满容器，可能被裁切 */
+    object-position: center;
+    /* 从中间取图像内容 */
+    display: block;
+}
+
+.btnContent {
+    width: 55%;
+    margin-left:145px;
+    padding: 15px;
+    border-radius: 5px;
+
+    flex-grow: 1
+    /* 向后延展直至填满容器 */
+}
+.btnContent h3{
+    font-size: 40px;
+    margin: 0;
+}
+/* for citylist */
+.btnContent a {
+    margin-top: 20px;
+    text-decoration: none;
+}
+.btnContent a h3{
+    font-size: 50px;
+    color: rgba(17, 45, 122, 0.719);
+    text-decoration: none;
+}
+
+
+
+

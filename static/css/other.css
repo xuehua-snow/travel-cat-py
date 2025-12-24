@@ -1,0 +1,26 @@
+/* ---------------------------Different part setting(各区域样式）-------------------------- */
+/* ----------------nocity----------------- */
+.nocity {
+    width: 40%;
+    font-size: 20px;
+    position: relative;
+    right: -85px;
+    top: 30px;
+}
+
+.nocity a {
+    top: 150px;
+    right: -45px;
+}
+/* ----------------city list----------------- */
+.citiesContent {
+    position: relative;
+        top: -20px;
+        left: -100px;
+}
+
+.backBtn {
+    position: relative;
+    top: 50px;
+    left: 300px;
+}

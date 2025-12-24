@@ -1,0 +1,96 @@
+{% extends "base.html" %} 
+
+{% block Title %}Toronto{% endblock %}
+
+{% block content %}
+    <main class="row-center">
+        <div class="citypage column">
+            <h1 class="row-center">
+                Toronto
+            </h1>
+            <div class="row-center">
+                <img src="/static/img/city/Toronto.png" alt="image of city" width="800">
+            </div>
+
+            <div class="cityContent">
+                <div class="citydiv">
+                    <h2>History</h2>
+                    <p class="split">
+                        Toronto has been home to Indigenous peoples for over 12,000 years, serving as a vital gathering and trading center for
+                        numerous communities. In 1793, the area was formally established as York Town, later renamed Toronto in 1834. Over
+                        centuries, this city has witnessed numerous historical turning points.
+                        <br>
+                        Toronto is also home to many captivating urban legends and folklore tales. One widely circulated legend points to a UFO
+                        base beneath Lake Ontario, where persistent mysterious lights and unexplained phenomena continue to fuel speculation
+                        about extraterrestrial activity. Another tale, rooted in Indigenous lore, is the myth of “Gashendita,” a fire-breathing
+                        dragon said to dwell in the depths of Lake Ontario.
+                    </p>    
+                </div>
+                <div class="citydiv">
+                    <h2>Popular Foods</h2>
+                    <div class="TorontoPicRaw row-center">
+                        <img src="/static/img/city/Toronto-butterTart.png" alt="image of city" width="200">
+                        <img src="/static/img/city/Toronto-Patties.png" alt="image of city" width="200">
+                        <img src="/static/img/city/Toronto-Nanaimo.png" alt="image of city" width="200">
+                    </div>
+                    <ul>
+                        <li>Peameal Bacon Sandwich – Toronto’s signature dish</li>
+                        <li>Poutine – Fries, cheese curds, and gravy.</li>
+                        <li>Butter Chicken Roti, Jamaican Patties, Sushi Pizza – fusion favorites</li>
+                        <li>Butter Tarts and Nanaimo Bars – iconic desserts</li>
+                    </ul>
+                </div>
+                <div class="citydiv">
+                    <div class="TorontoLang row">
+                        <h2>Population &<br> Language</h2>
+                        <div class="TorontoPicRaw right">
+                            <img src="/static/img/city/Toronto-lang.png" alt="image of city" width="300" class="right">
+                        </div>
+                    </div>
+                    <ul class="split">
+                        <li>English is dominant; 95% speak it.</li>
+                        <li>42.5% have a mother tongue other than English or French.</li>
+                        <li>Common home languages: Mandarin, Cantonese, Tagalog, Spanish, Tamil.</li>
+                        <li>City of Toronto: ~2.83 million (2025 est.)</li>
+                        <li>Greater Toronto Area (GTA): ~7.1 million</li>
+                        <li>Over 57% are visible minorities; nearly half are foreign-born</li>
+                    </ul>
+                </div>
+                {% if session.get("logged_in") %}
+                <div class="note">
+                    <h2>Note:</h2>
+                    <button id="addnote">+ Add</button><br>
+                    <button id="editnote">+ Edit</button>
+                    <ul id="notearea">
+                        {% for note in note %}
+                            <li data-id="{{ note.id }}" class="noteContent">
+                                {{ note.content }}
+                            </li>
+                            <form action="/editnote" method="POST" class="editnote column">
+                                <input type="hidden" name="city" value="toronto">
+                                <input type="hidden" name="note_id" value="{{ note.id }}">
+                                <textarea name="content" rows="14" cols="100" required>{{ note.content }}</textarea>
+                                <div>
+                                    <a class="cancelEditnote getStart littleIcon">Cancle</a>
+                                    <button type="submit" class="getStart littleIcon">Submit</button>
+                                </div>
+                            </form>
+                        {% endfor %}
+                    </ul>
+                    
+                    <form action="/addnote" method="POST" id="addnoteForm" class="addnote column">
+                        <input type="hidden" name="city" value="toronto">
+                        <input type="hidden" name="country" value="canada">
+                        <textarea name="content" rows="14" cols="100" required></textarea>
+                        <input name="Submit" type="submit" class="getStart littleIcon">
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+
+            <div>
+                <a href="/homepage" class="getStart">Go Back</a>
+            </div>
+        </div>
+    </main>
+{% endblock %}

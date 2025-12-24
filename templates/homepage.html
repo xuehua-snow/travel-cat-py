@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+<!-- ////////////////////////////////////////////////// -->
+{% block Title %}Map{% endblock %}
+
+<!-- ////////////////////////////////////////////////// -->
+{% block Map_Link %}
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
+<link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.1.0/mapbox-gl-geocoder.css"
+    type="text/css" />
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.1.0/mapbox-gl-geocoder.min.js"></script>
+
+{% endblock %}
+
+<!-- ////////////////////////////////////////////////// -->
+{% block content %}
+
+<main  class="row-center column">
+    <div class = "mapArea">
+        <div class = "btnArea column">
+            <button id="openWeather"><span class="text">Weather</span></button>
+            <button id="openShop"><span class="text">Shop</span></button>
+            <button id="openHotels"><span class="text">Hotel</span></button>
+            <img src="/static/img/cat/IMG_3492.JPG" alt="cat" width="300" id="Cat" class="Cat">
+        </div>
+
+        <!-- {% if session.get("logged_in") %}
+            <div id="notearea" class="userarea">
+                <p>test</p>
+                <div class="photo">
+                    <img src="/static/icon/cat.jpg" alt="photo" width="50">
+                </div>
+                <div id="menuBox" class="menu">
+                    <p>Hello, {{ session.get("username") }}</p>
+                    <form action="/logout" method="POST">
+                        <button class="exit-icon" type="submit">Log out</button>
+                    </form>
+                </div>
+            </div>
+        {% endif %} -->
+        
+        <div id="map"></div>
+        <script src="/static/js/map.js"></script>
+    </div>
+   
+    <div class="cityarea row-center">
+        <div class="citys row-center column">
+            <h2 class="row-center">
+                Cities
+            </h2> 
+            <div class="siglecity row">
+                <a href="/cityslist/toronto" class="cityphoto">
+                    <img src="/static/img/city/Toronto.png" alt="cityimg" width="700">
+                </a>
+                <div class="btnContent column">
+                    <h3>Toronto</h3>
+                    <p>
+                        Toronto is Canada’s largest city and serves as the nation’s economic and cultural hub. Known for its diversity, safety,
+                        strong educational resources, and vibrant arts scene, it is a major destination for international students and
+                        newcomers.
+                    </p>
+                </div>
+            </div>
+            <div class="siglecity row">
+                <a href="/cityslist/seulo" class="cityphoto">
+                    <img src="/static/img/city/seoul-lang.png" alt="cityimg" width="200">
+                </a>
+                <div class="btnContent column">
+                    <h3>Seulo</h3>
+                    <p>
+                        Seoul is South Korea’s center of politics, economy, and technology, known for its fast-paced urban development and
+                        advanced public infrastructure. The blend of traditional culture and modern cityscape makes it one of Asia’s most
+                        globalized metropolitan areas.
+                    </p>
+                </div>
+            </div>
+            <div class="siglecity row">
+                <a href="/cityslist/paris" class="cityphoto">
+                    <img src="/static/img/city/paris-2-1.png" alt="cityimg" width="100">
+                </a>
+                <div class="btnContent column">
+                    <h3>Paris</h3>
+                    <p>
+                        Paris, the capital of France, is renowned worldwide for its art, fashion, and architectural heritage. With deep cultural
+                        roots, numerous museums, and iconic historical landmarks, it stands as one of the world’s most influential destinations
+                        for tourism and cultural exchange.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
+
+
+
+  
+    
+
+
