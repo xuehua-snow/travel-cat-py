@@ -38,10 +38,10 @@ db_pool = pooling.MySQLConnectionPool(
     pool_name="main_pool",
     pool_size=10,  # 小项目 3–10 都可以
     host=app.config['MYSQL_HOST'],
-    port=app.config['MYSQL_PORT'],
+    port=int(app.config.get('MYSQL_PORT', 3306)),
     user=app.config['MYSQL_USER'],
     password=app.config['MYSQL_PASSWORD'],
-    database=app.config['MYSQL_DB']
+    database=app.config['MYSQL_DB'],
     ssl_disabled=False
 )
 
