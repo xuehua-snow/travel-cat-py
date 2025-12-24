@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 import os
 import mysql.connector
 from mysql.connector import pooling
+import time
+import uuid
+
 
 load_dotenv()
 
@@ -68,31 +71,75 @@ def about():
 # --------------------------city route-------------------------------
 @app.route("/cityslist/toronto")
 def toronto():
+    # # --------------SQL----------------
+    # conn = get_db()
+    # cursor = conn.cursor(dictionary=True)
+
+    # if "user_id" in session:
+    #     userid = session["user_id"]
+    #     city = "toronto"
+
+    #     note_sql = '''
+    #                     SELECT content,id
+    #                     FROM note
+    #                     WHERE user_id = %s AND city = %s;
+    #                 '''
+    #     note_values = (userid, city)
+        
+    #     cursor.execute(note_sql, note_values)
+    #     note = cursor.fetchall()
+    # else:
+    #     note = []
+
+    # cursor.close()
+    # conn.close()
+    # # ----------SQL End----------------  
+
+    # return render_template("cities/toronto.html", note=note)
+    rid = uuid.uuid4().hex[:8]
+    t0 = time.perf_counter()
+
+    print(f"[{rid}] toronto start")
+
+    t1 = time.perf_counter()
     # --------------SQL----------------
     conn = get_db()
+    t2 = time.perf_counter()
+    print(f"[{rid}] get_db: {(t2 - t1)*1000:.1f} ms")
+
     cursor = conn.cursor(dictionary=True)
 
     if "user_id" in session:
         userid = session["user_id"]
         city = "toronto"
 
-        note_sql = '''
-                        SELECT content,id
-                        FROM note
-                        WHERE user_id = %s AND city = %s;
-                    '''
+        note_sql = """
+            SELECT content,id
+            FROM note
+            WHERE user_id = %s AND city = %s;
+        """
         note_values = (userid, city)
-        
+
+        t3 = time.perf_counter()
         cursor.execute(note_sql, note_values)
+        t4 = time.perf_counter()
+        print(f"[{rid}] execute: {(t4 - t3)*1000:.1f} ms")
+
+        t5 = time.perf_counter()
         note = cursor.fetchall()
+        t6 = time.perf_counter()
+        print(f"[{rid}] fetchall: {(t6 - t5)*1000:.1f} ms")
     else:
         note = []
 
     cursor.close()
     conn.close()
-    # ----------SQL End----------------  
 
+    t7 = time.perf_counter()
+    print(f"[{rid}] total: {(t7 - t0)*1000:.1f} ms")
+    # ----------SQL End----------------
     return render_template("cities/toronto.html", note=note)
+
 
 @app.route("/cityslist/seulo")
 def seulo():
